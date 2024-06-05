@@ -40,4 +40,9 @@ public class AccountHolder implements Person {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolder " + lastName.toUpperCase() + ", " + firstName + " DOB: " + dateOfBirth;           
+    }
 }

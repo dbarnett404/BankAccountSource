@@ -3,12 +3,14 @@ public abstract class BankAccount {
     private String accountNumber;
     private LocalDate openingDate;
     protected double balance;
+    private AccountHolder accountHolder;
 
     // Constructor
     public BankAccount(AccountHolder accountHolder, LocalDate openingDate, double balance) {
         this.accountNumber = generateAccountNumber(accountHolder);
         this.openingDate = openingDate;
         this.balance = balance;
+        this.accountHolder = accountHolder;
     }
 
     // Getters and Setters
@@ -36,4 +38,13 @@ public abstract class BankAccount {
     abstract double deposit(double amount);
 
     abstract double withdraw(double amount); 
+
+    @Override
+    public String toString() {
+        return accountHolder.toString() 
+            + " Account Number: " + accountNumber 
+            + " Balance: " + String.format("%.2f", balance);           
+    }
+
+
 }
